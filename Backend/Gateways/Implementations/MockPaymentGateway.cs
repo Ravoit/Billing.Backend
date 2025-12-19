@@ -12,16 +12,16 @@ public class MockPaymentGateway(string id, ILogger logger) : IPaymentGateway
 
         await Task.Delay(100);
 
-        if (order.Amount < 0)
+        if (order.Amount <= 0)
         {
-            logger.LogError("Amount can't be less than zero.");
-            return new PaymentResult(false, null, "Amount can't be less than zero.");
+            logger.LogError("Amount can't be less or equal zero.");
+            return new PaymentResult(false, null, "Amount can't be less or equal zero.");
         }
 
         var result = new PaymentResult(true, Guid.NewGuid().ToString(), null);
 
-        logger.LogInformation("Payment '{OrderNumber}' handles successfully.", order.OrderNumber)
-            ;
+        logger.LogInformation("Payment '{OrderNumber}' handled successfully.", order.OrderNumber);
+        
         return result;
     }
 }

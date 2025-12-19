@@ -11,4 +11,8 @@
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Backend\Backend.csproj" />
+    </ItemGroup>
+
 </Project>
