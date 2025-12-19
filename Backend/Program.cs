@@ -1,0 +1,36 @@
+using Backend.Gateways;
+using Backend.Gateways.Implementations;
+using Backend.Models;
+using Backend.Services;
+using Microsoft.AspNetCore.Mvc;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+builder.Services.AddOpenApi();
+
+// Available payment gateways
+builder.Services.AddSingleton<IPaymentGateway>(sp =>
+    new BankPaymentGateway(sp.GetRequiredService<ILogger<BankPaymentGateway>>()));
+builder.Services.AddSingleton<IPaymentGateway>(sp =>
+    new PayPalPaymentGateway(sp.GetRequiredService<ILogger<PayPalPaymentGateway>>()));
+
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
+}
+
+var ordersApi = app.MapGroup("/orders");
+
+ordersApi.MapPost("/",
+    async ([FromBody] OrderRequest order, [FromServices] IOrderService orderService) =>
+    await orderService.ProcessOrderAsync(order));
+
+app.Run();
