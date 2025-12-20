@@ -7,17 +7,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Backend/Backend.csproj", "Backend/"]
-RUN dotnet restore "Backend/Backend.csproj"
+COPY ["Billing.Backend/Billing.Backend.csproj", "Billing.Backend/"]
+RUN dotnet restore "Billing.Backend/Billing.Backend.csproj"
 COPY . .
-WORKDIR "/src/Backend"
-RUN dotnet build "./Backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Billing.Backend"
+RUN dotnet build "./Billing.Backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Backend.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Billing.Backend.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Backend.dll"]
+ENTRYPOINT ["dotnet", "Billing.Backend.dll"]
