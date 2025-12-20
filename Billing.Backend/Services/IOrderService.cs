@@ -1,6 +1,6 @@
-﻿using Backend.Models;
+﻿using Billing.Backend.Models;
 
-namespace Backend.Services;
+namespace Billing.Backend.Services;
 
 public interface IOrderService
 {

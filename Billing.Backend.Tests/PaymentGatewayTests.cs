@@ -1,9 +1,9 @@
-﻿using Backend.Gateways;
-using Backend.Gateways.Implementations;
-using Backend.Models;
+﻿using Billing.Backend.Gateways;
+using Billing.Backend.Gateways.Implementations;
+using Billing.Backend.Models;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace Backend.Tests;
+namespace Billing.Backend.Tests;
 
 [TestClass]
 public sealed class PaymentGatewayTests

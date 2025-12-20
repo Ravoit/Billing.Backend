@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{7BBC1051-3755-4CD1-8E80-9F8190EE46B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Backend", "Billing.Backend\Billing.Backend.csproj", "{7BBC1051-3755-4CD1-8E80-9F8190EE46B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.Tests", "Backend.Tests\Backend.Tests.csproj", "{06103FAD-A35E-42D1-B366-565F754442DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Backend.Tests", "Billing.Backend.Tests\Billing.Backend.Tests.csproj", "{06103FAD-A35E-42D1-B366-565F754442DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

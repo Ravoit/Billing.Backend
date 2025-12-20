@@ -1,7 +1,7 @@
-using Backend.Gateways;
-using Backend.Gateways.Implementations;
-using Backend.Models;
-using Backend.Services;
+using Billing.Backend.Gateways;
+using Billing.Backend.Gateways.Implementations;
+using Billing.Backend.Models;
+using Billing.Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);

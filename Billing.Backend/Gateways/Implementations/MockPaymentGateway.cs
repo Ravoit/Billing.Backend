@@ -1,6 +1,6 @@
-﻿using Backend.Models;
+﻿using Billing.Backend.Models;
 
-namespace Backend.Gateways.Implementations;
+namespace Billing.Backend.Gateways.Implementations;
 
 public class MockPaymentGateway(string id, ILogger logger) : IPaymentGateway
 {

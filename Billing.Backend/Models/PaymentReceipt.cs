@@ -1,4 +1,4 @@
-﻿namespace Backend.Models;
+﻿namespace Billing.Backend.Models;
 
 public record PaymentReceipt(
     string OrderNumber,

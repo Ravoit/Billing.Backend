@@ -1,6 +1,6 @@
-﻿using Backend.Models;
+﻿using Billing.Backend.Models;
 
-namespace Backend.Gateways;
+namespace Billing.Backend.Gateways;
 
 public interface IPaymentGateway
 {

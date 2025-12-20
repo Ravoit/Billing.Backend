@@ -1,10 +1,10 @@
-﻿using Backend.Gateways.Implementations;
-using Backend.Models;
-using Backend.Services;
+﻿using Billing.Backend.Gateways.Implementations;
+using Billing.Backend.Models;
+using Billing.Backend.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace Backend.Tests;
+namespace Billing.Backend.Tests;
 
 [TestClass]
 public sealed class OrderTests

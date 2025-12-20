@@ -1,8 +1,8 @@
 ﻿using System.Collections.Concurrent;
-using Backend.Gateways;
-using Backend.Models;
+using Billing.Backend.Gateways;
+using Billing.Backend.Models;
 
-namespace Backend.Services;
+namespace Billing.Backend.Services;
 
 public sealed class OrderService(ILogger<IOrderService> logger, IEnumerable<IPaymentGateway> gateways) : IOrderService
 {
