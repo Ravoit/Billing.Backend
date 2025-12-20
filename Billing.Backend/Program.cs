@@ -8,10 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-    });
+    options.AddDefaultPolicy(policy => { policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
 });
 
 builder.Logging.ClearProviders();
@@ -31,7 +28,7 @@ var app = builder.Build();
 
 app.UseCors();
 
-if (app.Environment.IsDevelopment())
+if (true || app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
